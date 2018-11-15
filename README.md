@@ -29,7 +29,7 @@ https://www.jetbrains.com/idea/download/
 
 • Java 10/11 (suositus)
 
-– lataa käyttöjärjestelmäsi SDK-paketti (zip) osoitteestahttps://gluonhq.com/products/javafx/
+– lataa käyttöjärjestelmäsi SDK-paketti (zip) osoitteesta https://gluonhq.com/products/javafx/
 
 – tee kotikansioon hakemisto openjfx
 
