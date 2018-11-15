@@ -1,0 +1,40 @@
+image: openjdk:11
+
+stages:
+ - build
+ - test
+
+perftest_builder:
+  stage: build
+  before_script:
+    - cd latex
+  script:
+    - "javac -cp src/main/java/ -d out src/main/java/fi/utu/fractalexplorer/TestPerf.java"
+  artifacts:
+    paths:
+      - "out/fi/utu/fractalexplorer/TestPerf.class"
+      - "out/fi/utu/fractalexplorer/renderers/BenchmarkRuns.class"
+      - "out/fi/utu/fractalexplorer/renderers/RendererType.class"
+      - "out/fi/utu/fractalexplorer/renderers/DummyPixelRenderer.class"
+      - "out/fi/utu/fractalexplorer/renderers/PixelRenderer.class"
+      - "out/fi/utu/fractalexplorer/renderers/MandelbrotRenderer.class"
+      - "out/fi/utu/fractalexplorer/renderers/RendererFactory$1FastRenderer.class"
+      - "out/fi/utu/fractalexplorer/renderers/RendererFactory$1SlowRenderer.class"
+      - "out/fi/utu/fractalexplorer/renderers/RendererFactory$1StaticThreadRenderer.class"
+      - "out/fi/utu/fractalexplorer/renderers/RendererFactory$1DynThreadRenderer.class"
+      - "out/fi/utu/fractalexplorer/renderers/RendererFactory$1.class"
+      - "out/fi/utu/fractalexplorer/renderers/RendererFactory.class"
+      - "out/fi/utu/fractalexplorer/renderers/RenderBase.class"
+      - "out/fi/utu/fractalexplorer/renderers/MandelbrotSequentialRenderer.class"
+      - "out/fi/utu/fractalexplorer/renderers/MandelbrotStaticParallelRenderer.class"
+      - "out/fi/utu/fractalexplorer/renderers/MandelbrotDynamicParallelRenderer.class"
+      - "out/fi/utu/fractalexplorer/util/Viewport.class"
+      - "out/fi/utu/fractalexplorer/kernels/MandelbrotKernel.class"
+      - "out/fi/utu/fractalexplorer/kernels/MandelbrotFastKernel$VectorizedMandelbrot.class"
+      - "out/fi/utu/fractalexplorer/kernels/MandelbrotFastKernel.class"
+      - "out/fi/utu/fractalexplorer/kernels/MandelbrotSlowKernel.class"
+
+perftest_validator:
+  stage: test
+  script:
+    - "java -cp out fi.utu.fractalexplorer.TestPerf"
