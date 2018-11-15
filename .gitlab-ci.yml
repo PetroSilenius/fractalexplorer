@@ -6,8 +6,6 @@ stages:
 
 perftest_builder:
   stage: build
-  before_script:
-    - cd latex
   script:
     - "javac -cp src/main/java/ -d out src/main/java/fi/utu/fractalexplorer/TestPerf.java"
   artifacts:
