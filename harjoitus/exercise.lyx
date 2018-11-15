@@ -624,7 +624,7 @@ halvaantua
  käyttöliittymän esitettäväksi jonoon kertynyt kuva.
  Ongelma on klassinen tuottaja–kuluttaja -ongelma samanaikaisuuden kirjallisuude
 sta.
- Tässä lisähaasteina on
+ Tässä lisähaasteina:
 \end_layout
 
 \begin_layout Itemize
@@ -1035,7 +1035,7 @@ IDEA:n asetusten kautta (File -> Configure -> Plugins + Install Jetbrains
 \end_layout
 
 \begin_layout Enumerate
-Valinnaisesti pluginit: Gitlab projects, Junit ja JavaFX.
+Valinnaisesti plugin: Gitlab projects
 \end_layout
 
 \begin_layout Enumerate
@@ -1377,7 +1377,7 @@ Toteuta piirron irrottaminen käyttöliittymäsäikeestä
 
 \begin_layout Itemize
 Toteutuksessa kannattaa käyttää työmäärän vähentämiseksi vähintään Javan
- tarjoamaa pinoluokkaa ja/tai java.util.concurrent-luokkia.
+ tarjoamaa jonoluokkaa ja/tai java.util.concurrent-luokkia.
 \end_layout
 
 \begin_layout Itemize

@@ -120,7 +120,7 @@ Ongelmaan ratkaisuna on ns. työjono, joka on säieturvallinen samanaikainen
 jonorakenne, johon yhteen päähän tallennetaan seuraava piirrettävä
 kuva ja toisesta päästä luetaan käyttöliittymän esitettäväksi jonoon
 kertynyt kuva. Ongelma on klassinen tuottaja–kuluttaja -ongelma samanaikaisuuden
-kirjallisuudesta. Tässä lisähaasteina on
+kirjallisuudesta. Tässä lisähaasteina:
 \item Käyttöliittymää saa JavaFX:ssä päivittää vain JavaFX:n käyttöliittymäsäikeellä
 tai ohjelma kaatuu. JavaFX-säie tarjotaan automaattisesti ja kyseinen
 säie kutsuu Ticker-luokan metodeita ja oletuksena sitä kautta koko
@@ -258,7 +258,7 @@ fraktaalin säilömiseen tarkoitetun ''piirtopinnan'':
 \begin{enumerate}
 \item IDEA:n asetusten kautta (File -> Configure -> Plugins + Install Jetbrains
 plugin) Scala-plugin.
-\item Valinnaisesti pluginit: Gitlab projects, Junit ja JavaFX.
+\item Valinnaisesti plugin: Gitlab projects
 \item Säädä myös File -> Settings -> Build, execution, deployment -> Build
 tools -> sbt -> Project level settings -> {[}x{]} use auto-import
 \end{enumerate}
@@ -365,7 +365,7 @@ tehtävä on jälleen mielekäs.
 \begin{itemize}
 \item Toteuta piirron irrottaminen käyttöliittymäsäikeestä
 \item Toteutuksessa kannattaa käyttää työmäärän vähentämiseksi vähintään
-Javan tarjoamaa pinoluokkaa ja/tai java.util.concurrent-luokkia.
+Javan tarjoamaa jonoluokkaa ja/tai java.util.concurrent-luokkia.
 \item Totea asynkronisuuden toiminta lisäämällä laskennan kuormaa Detail++
 -napista ja etsimällä kuvasta laskennallisesti vaativa kohta. Alkup.
 toteutus jumiutuu pahasti. Ratkaisun tulisi pystyä vastaamaan käyttäjän
