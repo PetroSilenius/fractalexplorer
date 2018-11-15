@@ -34,5 +34,7 @@ perftest_builder:
 
 perftest_validator:
   stage: test
+  before_script:
+    - "javac -cp src/main/java/ -d out src/main/java/fi/utu/fractalexplorer/TestPerf.java"
   script:
     - "java -cp out fi.utu.fractalexplorer.TestPerf"

@@ -6,7 +6,6 @@ package fi.utu.fractalexplorer.renderers;
 public class RendererFactory {
     public static MandelbrotRenderer createRenderer(RendererType type, int w, int h, int maxIterations, PixelRenderer p) throws Exception {
 
-
         switch (type) {
             case Slow:
                 return new SlowRenderer(w, h, maxIterations, p);
