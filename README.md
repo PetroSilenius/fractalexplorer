@@ -21,7 +21,7 @@ https://www.jetbrains.com/idea/download/
 
 (a) IDEA:n asetusten kautta (File -> Configure -> Plugins + Install Jetbrains plugin) Scala-plugin.
 
-(b) Valinnaisesti pluginit: Gitlab projects ja JavaFX.
+(b) Valinnaisesti plugin: Gitlab projects
 
 (c) Säädä myös File -> Settings -> Build, execution, deployment -> Build tools -> sbt -> Project level settings -> [x] use auto-import
 
