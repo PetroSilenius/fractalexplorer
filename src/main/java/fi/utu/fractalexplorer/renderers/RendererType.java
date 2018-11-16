@@ -10,8 +10,8 @@ import java.io.Serializable;
 public enum RendererType implements Serializable {
     Slow("Scalar"),
     Vector("Vector"),
-    StaticTheaded("Threaded (static sched)"),
-    DynamicTheaded("Theaded (dyn. sched)"),
+    StaticThreaded("Threaded (static sched)"),
+    DynamicThreaded("Threaded (dyn. sched)"),
     ThreadedWorkQueue("Threaded + work queues");
 
     RendererType(String desc) {
