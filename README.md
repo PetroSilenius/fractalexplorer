@@ -1,7 +1,7 @@
 # fractalexplorer
 
 ## Harjoitustyön tehtävänanto
-Tehtävänanto sekä tarkempi dokumentaatio ilmestyy tämän päivän (perjantai 16.11.) aikana.
+Harjoitustyön tehtävänanto sekä lisätiedot löytyvät tämän repositoryn doc/ -hakemistosta nimellä exercise.pdf
 
 ## Työkalujen asennus
 Työn tekemistä varten, asenna seuraavat työkalut seuraavassa järjestyksessä:
