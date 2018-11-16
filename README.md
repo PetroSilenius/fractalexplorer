@@ -6,32 +6,32 @@ Tehtävänanto sekä tarkempi dokumentaatio ilmestyy tämän päivän (perjantai
 # Työkalujen asennus
 Työn tekemistä varten, asenna seuraavat työkalut seuraavassa järjestyksessä:
 
-## Java Development Kit (JDK)
+### 1. Java Development Kit (JDK)
 https://www.oracle.com/technetwork/java/javase/downloads/index.html
 
-## Git-versionhallinta
+### 2. Git-versionhallinta
 https://git-scm.com/downloads
 
-## SBT käännöksen automatisointityökalu (build tool)
+### 3. SBT käännöksen automatisointityökalu (build tool)
 https://www.scala-sbt.org/
 
-## IDEA-ohjelmointiympäristö
+### 4. IDEA-ohjelmointiympäristö
 https://www.jetbrains.com/idea/download/
 
-### Työkalujen integrointi IDEAan
+#### Työkalujen integrointi IDEAan
 1. IDEA:n asetusten kautta (File -> Settings... -> Plugins > Install Jetbrains plugin...) Etsi "Scala" ja asenna
 2. Valinnainen lisäosa: Gitlab projects
 3. Säädä myös File -> Settings... -> Build, execution, deployment -> Build tools -> sbt -> Project level settings -> [x] Use Auto-import
     - Tämä optio on valittavissa vasta kun projekti on tuotu IDEAan. Eli siis kohdan "Projektin aloittaminen" jälkeen
 
-## JavaFX
+### JavaFX
 JavaFX vastaa käyttöliittymästä esimerkkiprojektissamme. Riippuu Javan versiosta, onko JavaFX mukana vai ei.
 
 - Java 10/11 (suositus)
-    - JavaFX ei ole enää JDK:n mukana
+    - JavaFX ei ole enää JDK:n mukana, joten se joudutaan asentamaan
     - Mikäli käytät SBT:tä, on tämä vaihe valinnainen, sillä sbt osaa ladata JavaFX 11:n automaattisesti!
     - Lataa käyttöjärjestelmällesi sopiva JavaFX SDK-paketti (zip) osoitteesta https://gluonhq.com/products/javafx/
-    - Tee kotikansioosi hakemisto openjfx
+    - Tee hakemisto openjfx (Sijainti: Windows:esim. Documents, Linux:esim. kotikansioosi)
     - Pura zip sinne
 
 - Java 8 ja JavaFX 8
@@ -40,34 +40,34 @@ JavaFX vastaa käyttöliittymästä esimerkkiprojektissamme. Riippuu Javan versi
 
 # Konfigurointi
 
-## Ympäristömuuttujat
+### Ympäristömuuttujat
 
 - Windows: Select Start -> Computer -> System Properties -> Advanced system settings -> Environment Variables -> System variables -> PATH. ...
 - MacOS: ohje vaihtelee valitettavasti versioittain
 - Linux: editoi ~/.profile tai ~/.bashrc
 - Asetukset päivittyvät kun sisäänkirjautuu uudestaan!
 
-### Ympäristömuuttuja JAVAFX_HOME (ei välttämätön)
+#### Ympäristömuuttuja JAVAFX_HOME (ei välttämätön)
 - Mikäli käytät SBT:tä tai Java 8:aa, ei tätä tarvitse tehdä
 - Aseta ympäristömuuttuja JAVAFX_HOME osoittamaan javafx-kansion juureen
     - Eli siis kansioon, johon purit JavaFX-kohdassa JavaFX-kirjaston
 - Esimerkiksi: /home/minä/openjfx
 
-### Ympäristömuuttuja PATH
+#### Ympäristömuuttuja PATH
 Ympäristömuuttuja PATH sisältää kaikki ne polut, josta etsitään suoritettavia binäärejä työkansiosta riippumatta
 - Testaa että komentoriviltä voi suorittaa käskyt: git, sbt, java, javac (Oracle jostain syystä unohtanut jossain Java-versiossa sisällyttää JDK:n javac:n PATH:iin)
 - Jos jokin työkalu ei toimi, lisää kyseisen työkalun binäärien hakemisto PATHiin ;-eroteltuna (Linux/Mac :-eroteltuna).
 
-## Projektin aloittaminen
+### Projektin aloittaminen
 
-### Forkkaamalla projekti (suositeltu)
+#### Forkkaamalla projekti (suositeltu)
 1. Ryhmän perustaja forkkaa (eli tekee itsellensä kopion projektista gitlabiin) osoitteessa https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer/forks/new
     - Suositeltavaa pitää näkyvyys forkilla Privatena, etteivät muut pääse kopioimaan koodia
 2. Ryhmnäläisille tulee antaa tämän jälkeen tarvittavat oikeudet forkattuun projektiin kohdasta Settings > Members
 3. Ryhmän jäsenet voivat nyt kloonata (eli ladta git-komentorivityökalulla) forkkisi harjoitustyöstä joko komentorivillä (git clone) tai IDEA:lla (Check out from Version Control -> Git)
 4. Joka kerta kun joku lähettää (push) commitit gitlabiin, ajetaan CI/CD-pipeline, joka tarkistaa, kääntyykö harjoitustyö ja onko se ratkaistu oikein. Ei siis kannata pelästyä ilmoitusta siitä, että testaus epäonnistui.
 
-### Manuaalisesti
+#### Manuaalisesti
 1. Lataa (kloonaa) git-komentorivityökalulla projekti osoitteesta https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer.git
     - Huom. Et pysty tällöin lähettämään muutoksia gitlabiin ilman lisäkonfiguraatiota, sillä sinulla ei ole kirjoitusoikeuksia projektipohjaan
     - Mikäli git tuottaa liiaksi hankaluuksia tälläkin asteella, voit ladata uusimman version harjoitustyöpohjasta suoraan osoitteesta https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer/-/archive/master/fractalexplorer-master.zip
@@ -80,7 +80,7 @@ Ympäristömuuttuja PATH sisältää kaikki ne polut, josta etsitään suoritett
 
 - Java-versio valitaan projektia luotaessa. Voi vaihtaa myöhemmin. Suositus: 11
 
-# Käyttö
+## Käyttö
 Komentoriviltä projekti käynnistyy komennolla:
 
 ```shell
