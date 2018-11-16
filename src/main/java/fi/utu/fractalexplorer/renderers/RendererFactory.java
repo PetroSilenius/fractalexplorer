@@ -11,9 +11,9 @@ public class RendererFactory {
                 return new SlowRenderer(w, h, maxIterations, p);
             case Vector:
                 return new FastRenderer(w, h, maxIterations, p);
-            case StaticTheaded:
+            case StaticThreaded:
                 return new StaticThreadRenderer(w, h, maxIterations, p);
-            case DynamicTheaded:
+            case DynamicThreaded:
                 return new DynThreadRenderer(w, h, maxIterations, p);
             case ThreadedWorkQueue:
                 throw new Exception("Unimplemented renderer type "+type);
