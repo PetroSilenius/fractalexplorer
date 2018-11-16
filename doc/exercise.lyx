@@ -1,0 +1,1761 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass utuftlabreport
+\options language=finnish
+\use_default_options false
+\maintain_unincluded_children false
+\language finnish
+\language_package auto
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\pdf_bookmarks false
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine biblatex
+\cite_engine_type authoryear
+\biblio_style plain
+\biblatex_bibstyle ieee
+\biblatex_citestyle ieee
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Document template suitable for use as a latex master-file for lab
+\end_layout
+
+\begin_layout Plain Layout
+
+% reports in University of Turku Department of Future Technologies.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% This template is synced with the gitlab template.
+\end_layout
+
+\begin_layout Plain Layout
+
+% Works with sharelatex / pdflatex / xelatex
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% --
+\end_layout
+
+\begin_layout Plain Layout
+
+% --
+\end_layout
+
+\begin_layout Plain Layout
+
+% Relies on utuftlabreport.cls for the document class definitions.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Traditionally the best places to learn (La)TeX are probably the manual
+\end_layout
+
+\begin_layout Plain Layout
+
+% pages for each package
+\end_layout
+
+\begin_layout Plain Layout
+
+%   http://www.ctan.org/ 
+\end_layout
+
+\begin_layout Plain Layout
+
+% and
+\end_layout
+
+\begin_layout Plain Layout
+
+%  http://www.ctan.org/tex-archive/info/lshort/english/lshort.pdf
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% This version should be compatible with xelatex and biblatex
+\end_layout
+
+\begin_layout Plain Layout
+
+% which means that all source files can freely use normal UTF-8 text
+\end_layout
+
+\begin_layout Plain Layout
+
+% without resorting to "legacy hacks".
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% The utuftlabreport.cls defines a new lab report class, which is based on
+\end_layout
+
+\begin_layout Plain Layout
+
+% the report class.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout PubLab
+Tietotekniikka
+\end_layout
+
+\begin_layout PubCourse
+Hajautetut ohj.järjestelmät ja pilvipalvelut
+\end_layout
+
+\begin_layout GroupMembers
+Ei ryhmää
+\end_layout
+
+\begin_layout Title
+Harjoitustyö 1
+\begin_inset Newline newline
+\end_inset
+
+
+\size large
+Laskennan nopeuttaminen säieohjelmoinnilla
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Johdanto
+\end_layout
+
+\begin_layout Standard
+Nykyään on tavallista, että muutaman euron arvoisista sulautetuista järjestelmis
+tä alkaen tietokoneet sisältävät useampia ns.
+ suoritinytimiä ja sitä kautta kyvyn laskea yhden sijaan useita laskutoimituksia
+ samanaikaisesti.
+ Erilaiset laskentatehtävät rinnakkaistuvat eri tavalla, mutta laskennan
+ tehostamisen kannalta helpoin algoritmien kategoria on ns.
+ helposti rinnakkaistuvat ongelmat (
+\shape italic
+embarrassingly parallel
+\shape default
+).
+ Nämä algoritmit voidaan osittaa niin, että osat voidaan laskea täysin itsenäise
+sti ilman kommunikointia osien välillä.
+ Käytännössä tällaiset ongelmat voidaan jakaa aluksi osaongelmiin, käynnistää
+ kunkin osan suoritus rinnakkain ja/tai peräkkäin ja odottaa, kunnes kaikki
+ laskenta päättyy, jonka jälkeen tulokset kootaan.
+\end_layout
+
+\begin_layout Section
+Mandelbrot-fraktaali
+\end_layout
+
+\begin_layout Standard
+Tässä harjoitustyössä sovelletaan yhtä tällaista ongelmaa – ns.
+ Mandelbrotin fraktaalijoukon kuvan piirtämistä rinnakkaisesti.
+ Kuvan piirtämisessä keskeinen osa on ns.
+ ydinfunktio (
+\shape italic
+kernel
+\shape default
+), joka saa syötteenä kuvapisteen koordinaatit ja generoi iteratiivisella
+ kompleksilukuaritmetiikalla kuvapisteelle värin annetusta paletista.
+ Jokaisen pisteen väriarvo voidaan laskea toisista pisteistä riippumatta
+ – laskennan perustaksi riittää siis pelkkä pisteen koordinaatti.
+ Säieohjelmoinnin tekniikoiden vastuulle jää koordinoida korkean tason suoritus
+ niin että kaikki kuvan 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$leveys 
+\backslash
+times korkeus$
+\end_layout
+
+\end_inset
+
+ pistettä tulevat lasketuksi mahdollisimman tehokkaasti.
+\end_layout
+
+\begin_layout Section
+Säikeistystehtävät
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Säikeistystehtävät"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tässä harjoitustyössä on seuraavat kolme ratkaistavaa säieohjelmoinnin ongelmaa:
+\end_layout
+
+\begin_layout Enumerate
+Ratkaistaan ongelma 
+\shape italic
+staattisella aikataulutuksella
+\shape default
+, so.
+ tilanne, jossa kukin säie 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$p_1, ..., p_n$
+\end_layout
+
+\end_inset
+
+ saa tehtäväksi kiinteän määrän tehtäviä 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_1, ..., t_m$
+\end_layout
+
+\end_inset
+
+.
+ Kutakin tehtävää vastaa yhtäsuuri kuva-alue kokonaiskuvasta.
+ Esimerkki: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$n=4$
+\end_layout
+
+\end_inset
+
+ ja 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$m=2$
+\end_layout
+
+\end_inset
+
+.
+ Nyt jokainen prosessori saa kaksi tehtävää, joista kumpikin vastaa 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+frac{1}{n 
+\backslash
+times m} = 
+\backslash
+frac{1}{8}$
+\end_layout
+
+\end_inset
+
+ koko kuvasta.
+ Kuvan voi jakaa esim.
+ allekkain kahdeksaan vaakasuoraan siivuun.
+ Kun säie on suorittanut tehtävänsä 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_1$
+\end_layout
+
+\end_inset
+
+, jatkaa se suoraan tehtävästä 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_2$
+\end_layout
+
+\end_inset
+
+.
+ Nyt jos jonkin muun säikeen tehtävä on vielä keskeneräinen, näitä tehtäviä
+ ei jaeta säikeiden välillä vaan nopeiten valmistuvat jäävät odottamaan.
+\end_layout
+
+\begin_layout Enumerate
+Ratkaistaan ongelma 
+\shape italic
+dynaamisella aikataulutuksella
+\shape default
+, so.
+ tilanne, jossa kukin säie 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$p_1, ..., p_n$
+\end_layout
+
+\end_inset
+
+ saa tehtäväksi vaihtelevan määrän tehtävistä 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_1, ..., t_m$
+\end_layout
+
+\end_inset
+
+.
+ Kutakin tehtävää vastaa tässäkin yhtäsuuri kuva-alue kokonaiskuvasta, mutta
+ algoritmin ero syntyykin siinä, miten tehtäviä jaetaan.
+ Esimerkki: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$n=4$
+\end_layout
+
+\end_inset
+
+ ja 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$m=64$
+\end_layout
+
+\end_inset
+
+.
+ Nyt jokainen säie saa tehtävän, joka vastaa 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+frac{1}{m} = 
+\backslash
+frac{1}{64}$
+\end_layout
+
+\end_inset
+
+ koko kuvasta.
+ Kuvan voi jakaa esim.
+ 
+\begin_inset Quotes sld
+\end_inset
+
+tiiliin
+\begin_inset Quotes srd
+\end_inset
+
+, niin että kokonaiskuva koostuu 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$8 
+\backslash
+times 8$
+\end_layout
+
+\end_inset
+
+ pienemmästä ruudusta, joiden kunkin koko on 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+frac{leveys}{8} 
+\backslash
+times 
+\backslash
+frac{korkeus}{8}$
+\end_layout
+
+\end_inset
+
+.
+ Suoritettuaan tehtävänsä säie poimii jonosta uuden tekemättömän tehtävän,
+ kunnes kaikki tehtävät on laskettu.
+\end_layout
+
+\begin_layout Enumerate
+Käyttöliittymän (piirretään uudelleen 50 ms välein) irrottaminen laskennasta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{javacode}
+\end_layout
+
+\begin_layout Plain Layout
+
+class Ticker implements Scheduled {
+\end_layout
+
+\begin_layout Plain Layout
+
+  public int tickDuration() { return 50; }
+\end_layout
+
+\begin_layout Plain Layout
+
+  public void tick() {
+\end_layout
+
+\begin_layout Plain Layout
+
+      ...
+\end_layout
+
+\begin_layout Plain Layout
+
+      canvas.redraw();
+\end_layout
+
+\begin_layout Plain Layout
+
+      ...
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{javacode}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Nyt ongelma on, mikäli fraktaalin iteraatioiden maksimimäärää kasvattaa
+ tai ohjelmassa hiirellä navigoi työläästi laskettavaan kohtaan, laskenta
+ voi kestää yli 50 millisekuntia, jolloin keskeneräistä laskentaa voi kumuloitua
+, minkä seurauksena koko käyttöliittymä voi 
+\begin_inset Quotes sld
+\end_inset
+
+halvaantua
+\begin_inset Quotes srd
+\end_inset
+
+.
+ Ongelmaan ratkaisuna on ns.
+ työjono, joka on säieturvallinen samanaikainen jonorakenne, johon yhteen
+ päähän tallennetaan seuraava piirrettävä kuva ja toisesta päästä luetaan
+ käyttöliittymän esitettäväksi jonoon kertynyt kuva.
+ Ongelma on klassinen tuottaja–kuluttaja -ongelma samanaikaisuuden kirjallisuude
+sta.
+ Tässä lisähaasteina:
+\end_layout
+
+\begin_layout Itemize
+Käyttöliittymää saa JavaFX:ssä päivittää vain JavaFX:n käyttöliittymäsäikeellä
+ tai ohjelma kaatuu.
+ JavaFX-säie tarjotaan automaattisesti ja kyseinen säie kutsuu Ticker-luokan
+ metodeita ja oletuksena sitä kautta koko piirtoa alusta loppuun.
+\end_layout
+
+\begin_layout Itemize
+Toiseksi, kuvat vievät kohtalaisen paljon muistitilaa, joten työjono ei
+ voi olla mielivaltaisen suuri vaan jonon pituus kannattaa rajoittaa, esim.
+ sulavan toiminnan takaamiseksi 2–3 kuvaan (jonossa on tällöin valmiina
+ kuvia, mikäli laskenta tilapäisesti kestää yli 50 ms)
+\end_layout
+
+\begin_layout Itemize
+Jonosta kulutetaan kuvia pois tasaisella 50 ms nopeudella (+ piirto JavaFX:llä
+ kesti harj.työn laatijan koneella lähes vakioajan 1-2 ms), joten jos tuottaja
+ pystyy tuottamaan kuvan välillä nopeammin, tuottaminen tulisi jäädyttää
+ säietekniikoilla, kunnes jonoon mahtuu taas kuvia.
+\end_layout
+
+\begin_layout Itemize
+Toisaalta, kuluttaja ei saa vastaavalla tavalla jäädä odottamaan jonosta
+ kuvaa, mikäli seuraava näytettävää kuvaa ei ole, sillä tämä jäädyttäisi
+ käyttöliittymän kuten alkeellinen ratkaisu ilman työjonoa.
+ Jos jono on tyhjä, käyttöliittymän tulee jatkaa vanhan kuvan näyttämistä.
+\end_layout
+
+\begin_layout Section
+Alustava toteutus
+\end_layout
+
+\begin_layout Standard
+Tehtävänannon pohjana käytettävä toteutus mallintaa Mandelbrot-fraktaalin
+ laskennan peräkkäisesti.
+ Toteutus on tehty Java-kielellä ja hyödyntää grafiikan esittämiseen modernia
+ JavaFX-kirjastoa.
+ Työssä sekä kytkös JavaFX:ään että laskennan ydinfunktio (sekä muu työn
+ tekoa helpottava käyttöliittymä) tarjotaan valmiina.
+ Työ vaatii siis aluksi jonkin verran olemassaolevan koodin opiskelua (noin
+ 900 riviä ml.
+ kommentit), mutta tässä on se hyöty, että työn varsinainen kurssin teorian
+ kannalta tärkeä toteutus on varsin pelkistetty ja ytimekäs.
+\end_layout
+
+\begin_layout Enumerate
+Fraktaalin piirto lähtee liikkeelle matalimmalla tasolla luokista
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+MandelbrotKernel: yleinen rajapinta Mandelbrot-kuvapisteen laskemiseksi
+\end_layout
+
+\begin_layout Enumerate
+MandelbrotSlowKernel: toteuttaa pisteen laskennan yksinkertaisella skalaarimatem
+atiikalla (double)
+\end_layout
+
+\begin_layout Enumerate
+MandelbrotFastKernel: toteuttaa pisteen laskennan vektorimatematiikalla
+ (4:n mittainen double-taulukko
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Java kutsuu laitteistotasolla NEON/SSE/AVX/AltiVec-käskyjä tässä yhteydessä.
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Piirron seuraava luokkien abstraktiotaso hyödyntää Javan (8+) moniperintää
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+MandelbrotRenderer: yleinen kehys koko fraktaalin laskemiseksi
+\end_layout
+
+\begin_layout Enumerate
+RendererBase: yleinen kehys koko fraktaalin laskemiseksi
+\end_layout
+
+\begin_layout Enumerate
+MandelbrotSequentialRenderer: piirtää fraktaalin peräkkäisesti
+\end_layout
+
+\begin_layout Enumerate
+MandelbrotSlowRenderer: piirtää fraktaalin peräkkäisesti MandelbrotSlowKernel:ll
+a
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+SlowRenderer: yhdistää MandelbrotSlowRenderer:n laskentakoodiin
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+MandelbrotFastRenderer: piirtää fraktaalin peräkkäisesti MandelbrotFastKernel:ll
+a
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+FastRenderer: yhdistää MandelbrotFastRenderer:n laskentakoodiin
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+RendererFactory: apuluokka, joka luo pyynnöstä em.
+ piirtoluokkia
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Seuraavat luokat tulisi ryhmän toteuttaa tehtävänannon mukaisesti
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+MandelbrotStaticParallelRenderer: piirtää fraktaalin rinnakkaisesti MandelbrotFa
+stKernel:lla, hyödyntäen staattista aikataulutusta
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+StaticThreadRenderer: yhdistää MandelbrotStaticParallelRenderer:n laskentakoodii
+n
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+MandelbrotDynamicParallelRenderer: piirtää fraktaalin rinnakkaisesti MandelbrotF
+astKernel:lla, hyödyntäen dynaamista aikataulutusta
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+DynThreadRenderer: yhdistää MandelbrotDynamicParallelRenderer:n laskentakoodiin
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+Lisäksi käyttöliittymän irrottaminen asynkronisesti laskennan suorittamisesta
+ vaatii ylimääräistä koodia yhteen tai useampaan projektin luokkaan (vihjeeksi
+ luokat, joita ei tarvitse muokata, on merkitty luokkia edeltäviin kommentteihin
+).
+\end_layout
+
+\begin_layout Standard
+Katsotaan esimerkinomaisesti luokkaa MandelbrotKernel (sivuutetaan rotaatio):
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{javacode}
+\end_layout
+
+\begin_layout Plain Layout
+
+interface MandelbrotKernel {
+\end_layout
+
+\begin_layout Plain Layout
+
+  int vectorSize();
+\end_layout
+
+\begin_layout Plain Layout
+
+  int getMaxIterations();
+\end_layout
+
+\begin_layout Plain Layout
+
+  int mandelbrot(double c_re, double c_im);
+\end_layout
+
+\begin_layout Plain Layout
+
+  int[] mandelbrot(double x, double y, double inc, double rot);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{javacode}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Metodi vectorSize() palauttaa joko 1 (slow) tai 4 (fast).
+\end_layout
+
+\begin_layout Itemize
+getMaxIterations() kertoo piirtoon asetettujen iteraatioiden maksimimäärän.
+\end_layout
+
+\begin_layout Itemize
+mandelbrot(c_re, c_im): laskee fraktaalin väriarvon pisteessä (c_re, c_im)
+\end_layout
+
+\begin_layout Itemize
+mandelbrot(x, y, inc, rot): laskee fraktaalin väriarvot pisteissä (x, y),
+ (x+inc, y), (x+2*inc, y), (x+3*inc, y)
+\end_layout
+
+\begin_layout Itemize
+Yleisesti, em.
+ kategorioiden 2) ja 3) luokat huolehtivat näistä matalan tason rutiineista
+ eikä niistä tarvitse välittää (pl.
+ se fakta, että drawTile-jaon koordinaattirajojen pitää olla vektoriprosessoinni
+n takia neljällä jaollisia!)
+\end_layout
+
+\begin_layout Standard
+Katsotaan esimerkinomaisesti luokkaa MandelbrotSequentialRenderer:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{javacode}
+\end_layout
+
+\begin_layout Plain Layout
+
+interface MandelbrotSequentialRenderer extends MandelbrotRenderer {
+\end_layout
+
+\begin_layout Plain Layout
+
+  default void drawSet(Viewport vp) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    drawTile(0, 0, renderWidth(), renderHeight(), vp);
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{javacode}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Metodi drawSet piirtää koko fraktaalin ja delegoi oletuksena työn metodille
+ drawTile.
+ Vastaava metodi voi ryhmän toteutettavaksi jäävissä luokissa käsittää rinnakkai
+sen strategian piirtää fraktaali.
+\end_layout
+
+\begin_layout Itemize
+Metodi drawTile (luokasta MandelbrotRenderer) laskee peräkkäisesti, iteratiivise
+sti, rivi ja sarake kerrallaan alueen (0,0) – (renderWidth(), renderHeight())
+ kaikki kuvapisteet.
+ Tätä metodia (ja sitä matalamman tason asioita) ei tarvitse muokata.
+\end_layout
+
+\begin_layout Standard
+Lisäksi työn kannalta on olennainen seuraava luokkajoukko, joka käsittää
+ fraktaalin säilömiseen tarkoitetun 
+\begin_inset Quotes sld
+\end_inset
+
+piirtopinnan
+\begin_inset Quotes srd
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+PixelRenderer: rajapinta, joka kytkee piirron konkreettiin piirtopintaan.
+\end_layout
+
+\begin_layout Itemize
+FXPixelRenderer: edellisen konkreetti toteutus JavaFX:n piirtorutiineille.
+\end_layout
+
+\begin_layout Itemize
+MandelbrotCanvas: yleinen piirtopinnan ja näkymän säilövä apuluokka.
+\end_layout
+
+\begin_layout Itemize
+FXMandelbrotCanvas: edellisen konkreetti toteutus JavaFX:n piirtorutiineille.
+\end_layout
+
+\begin_layout Itemize
+Ticker: kytkee FXMandelbrotCanvas:n JavaFX:n ikkunaan ja tapahtumankäsittelyyn.
+\end_layout
+
+\begin_layout Section
+Käytännön toteutus
+\end_layout
+
+\begin_layout Subsection
+Työkalujen asennus
+\end_layout
+
+\begin_layout Standard
+Työn tekemistä varten, asenna seuraavat työkalut seuraavassa järjestyksessä:
+\end_layout
+
+\begin_layout Enumerate
+Java Development Kit (JDK): 
+\begin_inset CommandInset href
+LatexCommand href
+name "oracle.com/technetwork/java/javase/downloads/"
+target "https://www.oracle.com/technetwork/java/javase/downloads/index.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Git-versionhallinta: 
+\begin_inset CommandInset href
+LatexCommand href
+name "git-scm.com/downloads"
+target "https://git-scm.com/downloads"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+SBT käännöksen automatisointityökalu (build tool): 
+\begin_inset CommandInset href
+LatexCommand href
+name "www.scala-sbt.org/"
+target "https://www.scala-sbt.org/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+IDEA-ohjelmointiympäristö: 
+\begin_inset CommandInset href
+LatexCommand href
+name "www.jetbrains.com/idea/download/"
+target "https://www.jetbrains.com/idea/download/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Työkalujen integrointi IDEAan
+\end_layout
+
+\begin_layout Enumerate
+IDEA:n asetusten kautta (File -> Settings...
+ -> Plugins > Install Jetbrains plugin...) Etsi "Scala" ja asenna.
+\end_layout
+
+\begin_layout Enumerate
+Valinnainen lisäosa: Gitlab projects 
+\end_layout
+
+\begin_layout Enumerate
+Säädä myös File -> Settings...
+ -> Build, execution, deployment -> Build tools -> sbt -> Project level
+ settings -> [x] Use Auto-import
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Tämä optio on valittavissa vasta kun projekti on tuotu IDEAan.
+ Eli siis kohdan "Projektin aloittaminen" jälkeen
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+JavaFX
+\end_layout
+
+\begin_layout Standard
+JavaFX vastaa käyttöliittymästä esimerkkiprojektissamme.
+ Riippuu Javan versiosta, onko JavaFX mukana vai ei.
+\end_layout
+
+\begin_layout Itemize
+Java 10/11 (suositus)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+JavaFX ei ole enää JDK:n mukana, joten se joudutaan asentamaan
+\end_layout
+
+\begin_layout Itemize
+Mikäli käytät SBT:tä, on tämä vaihe valinnainen, sillä sbt osaa ladata JavaFX
+ 11:n automaattisesti! 
+\end_layout
+
+\begin_layout Itemize
+Lataa käyttöjärjestelmällesi sopiva JavaFX SDK-paketti (zip) osoitteesta
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://gluonhq.com/products/javafx/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Luo hakemisto openjfx joko kotikansioosi tai muuhun sopivaan paikkaan, esim
+ Windowsissa Documents (Älä lisää JavaFX:ää git-varastoosi)
+\end_layout
+
+\begin_layout Itemize
+Pura zip sinne
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+JavaFX 8
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Windows/Mac: JavaFX osana Oracle JDK 8:aa
+\end_layout
+
+\begin_layout Itemize
+Linux: OpenJFX (pitää asentaa erikseen paketinhallinnasta)
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Konfigurointi
+\end_layout
+
+\begin_layout Subsubsection
+Ympäristömuuttujat
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Windows: Select Start -> Computer -> System Properties -> Advanced system
+ settings -> Environment Variables -> System variables -> PATH.
+ ...
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+MacOS: ohje vaihtelee valitettavasti versioittain
+\end_layout
+
+\begin_layout Itemize
+Linux: editoi ~/.profile tai ~/.bashrc
+\end_layout
+
+\begin_layout Itemize
+Asetukset päivittyvät kun sisäänkirjautuu uudestaan!
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Ympäristömuuttuja JAVAFX_HOME (ei välttämätön)
+\end_layout
+
+\begin_layout Itemize
+Mikäli käytät SBT:tä tai Java 8:aa, ei tätä tarvitse tehdä 
+\end_layout
+
+\begin_layout Itemize
+Aseta ympäristömuuttuja JAVAFX_HOME osoittamaan javafx-kansion juureen
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Eli siis kansioon, johon purit JavaFX-kohdassa JavaFX-kirjaston
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Ympäristömuuttuja PATH
+\end_layout
+
+\begin_layout Itemize
+Testaa että komentoriviltä voi suorittaa käskyt: git, sbt, java, javac (Oracle
+ jostain syystä unohtanut jossain Java-versiossa sisällyttää JDK:n javac:n
+ PATH:iin) 
+\end_layout
+
+\begin_layout Itemize
+Jos jokin työkalu ei toimi, lisää kyseisen työkalun binäärien hakemisto
+ PATHiin ;-eroteltuna (Linux/Mac :-eroteltuna).
+\end_layout
+
+\begin_layout Subsection
+Projektin aloittaminen ja projektirungon lataus
+\end_layout
+
+\begin_layout Subsubsection
+Forkkaamalla projekti (suositeltu)
+\end_layout
+
+\begin_layout Enumerate
+Ryhmän perustaja forkkaa (eli tekee itsellensä kopion projektista gitlabiin)
+ osoitteessa 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer/forks/new
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Suositeltavaa pitää näkyvyys forkilla Privatena, etteivät muut pääse kopioimaan
+ koodia
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ryhmäläisille tulee antaa tämän jälkeen tarvittavat oikeudet forkattuun
+ projektiin kohdasta Settings > Members
+\end_layout
+
+\begin_layout Enumerate
+Ryhmän jäsenet voivat nyt kloonata forkkisi harjoitustyöstä joko komentorivillä
+ (git clone) tai IDEA:lla (Check out from Version Control -> Git) 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nocode}
+\end_layout
+
+\begin_layout Plain Layout
+
+$ git clone https://gitlab.utu.fi/ututunnuksesi/fractalexplorer.git
+\end_layout
+
+\begin_layout Plain Layout
+
+$ cd fractalexplorer
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nocode}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Joka kerta kun joku lähettää (push) commitit gitlabiin, ajetaan CI/CD-pipeline,
+ joka tarkistaa, kääntyykö harjoitustyö ja onko se ratkaistu oikein.
+ Ei siis kannata pelästyä ilmoitusta siitä, että testaus epäonnistui.
+\end_layout
+
+\begin_layout Subsubsection
+Manuaalisesti
+\end_layout
+
+\begin_layout Enumerate
+Lataa (kloonaa) git-komentorivityökalulla projekti osoitteesta 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer.git
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nocode}
+\end_layout
+
+\begin_layout Plain Layout
+
+$ git clone 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+https://gitlab.utu.fi/tech/education/distributed-systems 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/fractalexplorer.git
+\end_layout
+
+\begin_layout Plain Layout
+
+$ cd fractalexplorer
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nocode}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Huom.
+ Et pysty tällöin lähettämään muutoksia gitlabiin ilman lisäkonfiguraatiota,
+ sillä sinulla ei ole kirjoitusoikeuksia projektipohjaan 
+\end_layout
+
+\begin_layout Enumerate
+Mikäli git tuottaa liiaksi hankaluuksia tälläkin asteella, voit ladata uusimman
+ version harjoitustyöpohjasta suoraan osoitteesta 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer/-/archive
+/master/fractalexplorer-master.zip
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Voit aloittaa työskentelyn.
+ Huomaa, että tällä tavoin et pysty hyödyntämään gitin tarjoamia etuja ryhmätyös
+kentelyssä, etkä saa myöskään automaattitarkastajaa käyttöön.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Lopuksi kuitenkin automaattitarkastajaa käytetään toimivuuden tarkistamiseksi.
+ Tällöin voit luoda gitlabiin uuden puhtaan repositoryn ja lähettää koodit
+ suoraan sinne.
+\end_layout
+
+\begin_layout Subsection
+Käyttö
+\end_layout
+
+\begin_layout Standard
+Komentoriviltä projekti käynnistyy komennolla:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{nocode}
+\end_layout
+
+\begin_layout Plain Layout
+
+$ sbt run
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nocode}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mikäli käynnistät suoraan IDEA:sta, käynnistä main() luokasta MandelbrotMain.
+\end_layout
+
+\begin_layout Subsubsection
+Huomioita
+\end_layout
+
+\begin_layout Itemize
+Erikseen ladatun projektin voi importata myöhemminkin IDEAan
+\end_layout
+
+\begin_layout Itemize
+SBT integroituna IDEA:n sisällä – ei tarvita komentoriviä
+\end_layout
+
+\begin_layout Itemize
+Java-versio valitaan projektia luotaessa.
+ Voi vaihtaa myöhemmin.
+ Suositus: 11
+\end_layout
+
+\begin_layout Chapter
+Tehtävän kuvaus
+\end_layout
+
+\begin_layout Standard
+Toteuta luvun 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Säikeistystehtävät"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ kolme säikeistystehtävää:
+\end_layout
+
+\begin_layout Section
+Ratkaisu 
+\shape italic
+staattisella aikataulutuksella
+\end_layout
+
+\begin_layout Itemize
+Jaa kuva yhtäsuuriin vaakasuoriin siivuihin ja laske ne rinnakkain.
+\end_layout
+
+\begin_layout Itemize
+Toteuta laskenta Thread/Runnable-luokkia käyttäen
+\end_layout
+
+\begin_layout Itemize
+Selvitä kokeellisesti ohjelman käyttöliittymän ja/tai benchmark-rutiinien
+ avulla konekokoonpanollesi optimaalinen määrä siivuja ja säikeitä.
+\end_layout
+
+\begin_layout Itemize
+Mikäli koneesi ei sisällä moniydinprosessoria (ts.
+ > 8v vanha), säikeiden käyttö ei ole järkevää tehtävässä alunperinkään,
+ mutta voit lisätä piirtorutiinin yhteyteen joka säikeelle Thread.sleep(5)-viivee
+n, jolloin tehtävä on jälleen mielekäs.
+\end_layout
+
+\begin_layout Itemize
+Vinkki: tehtävä ei vaadi juurikaan koodin uudelleenjärjestelyä
+\end_layout
+
+\begin_layout Section
+Ratkaisu
+\shape italic
+ dynaamisella aikataulutuksella
+\end_layout
+
+\begin_layout Itemize
+Jaa kuva yhtäsuuriin 
+\begin_inset Quotes sld
+\end_inset
+
+tiiliin
+\begin_inset Quotes srd
+\end_inset
+
+ laske ne rinnakkain.
+\end_layout
+
+\begin_layout Itemize
+Toteuta laskenta joko Thread/Runnable-luokkia käyttäen tai käytä apuna Javan
+ java.util.concurrent-luokkia
+\end_layout
+
+\begin_layout Itemize
+Selvitä kokeellisesti ohjelman käyttöliittymän ja/tai benchmark-rutiinien
+ avulla konekokoonpanollesi optimaalinen määrä tiiliä ja säikeitä.
+\end_layout
+
+\begin_layout Itemize
+Mikäli koneesi ei sisällä moniydinprosessoria (ts.
+ > 8v vanha), säikeiden käyttö ei ole järkevää tehtävässä alunperinkään,
+ mutta voit lisätä piirtorutiinin yhteyteen joka säikeelle Thread.sleep(5)-viivee
+n, jolloin tehtävä on jälleen mielekäs.
+\end_layout
+
+\begin_layout Itemize
+Vinkki: tehtävä ei vaadi juurikaan koodin uudelleenjärjestelyä
+\end_layout
+
+\begin_layout Section
+Käyttöliittymän irrottaminen laskennasta asynkronisesti
+\end_layout
+
+\begin_layout Itemize
+Toteuta piirron irrottaminen käyttöliittymäsäikeestä
+\end_layout
+
+\begin_layout Itemize
+Toteutuksessa kannattaa käyttää työmäärän vähentämiseksi vähintään Javan
+ tarjoamaa jonoluokkaa ja/tai java.util.concurrent-luokkia.
+\end_layout
+
+\begin_layout Itemize
+Totea asynkronisuuden toiminta lisäämällä laskennan kuormaa Detail++ -napista
+ ja etsimällä kuvasta laskennallisesti vaativa kohta.
+ Alkup.
+ toteutus jumiutuu pahasti.
+ Ratkaisun tulisi pystyä vastaamaan käyttäjän klikkailuun laskennan hidastumises
+ta huolimatta.
+\end_layout
+
+\begin_layout Itemize
+Vinkki: tehtävä vaatii koodin uudelleenjärjestelyä usean kuvan jonottamiseen
+\end_layout
+
+\begin_layout Itemize
+Mikäli koneesi sisältää vähän RAM-muistia, kytke päälle swap/page file,
+ pienennä koodista JavaFX-ikkunan kokoa ja/tai rajaa jonon pituus 2 kuvaan.
+\end_layout
+
+\begin_layout Itemize
+JavaFX:n ikkunan koko säädetään MandelbrotApp-luokan rivillä:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{javacode}
+\end_layout
+
+\begin_layout Plain Layout
+
+  primaryStage.setScene(new Scene(
+\end_layout
+
+\begin_layout Plain Layout
+
+    root, screen.getWidth() * 2 / 3, screen.getHeight() * 2 / 3
+\end_layout
+
+\begin_layout Plain Layout
+
+  ));
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{javacode}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "Bibliografia"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Appendix
+Liitedokumentti
+\end_layout
+
+\begin_layout Standard
+Mandelbrotin fraktaali perustuu kompleksilukufunktioon 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_{n+1} = x_{n}^2 + c$
+\end_layout
+
+\end_inset
+
+, jossa x ja c ovat kompleksilukuja.
+ C on vakio ja x:lle annetaan alkuarvoksi 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_0 = (0, 0)$
+\end_layout
+
+\end_inset
+
+, tällöin yhtälöstä saadaan 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x1 = c$
+\end_layout
+
+\end_inset
+
+ ja edelleen 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_2 = x_{1}^2 + c$
+\end_layout
+
+\end_inset
+
+.
+ Iterointia jatketaan kunnes x:n itseisarvo ylittää arvon 2.
+ Jos 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$c$
+\end_layout
+
+\end_inset
+
+:n itseisarvo on lähellä nollaa, niin x ei milloinkaan saavuta arvoa 2.
+ Tätä vastaa fraktaalin kuvaajan keskellä oleva musta alue.
+ Jos 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$c$
+\end_layout
+
+\end_inset
+
+:n itseisarvo on suuri, esim 2, niin heti ensimmäinen iteraatio saa x:n
+ ylittämän arvon 2.
+ Tätä vastaa kuvan reunoilla olevat tummimmat alueet.
+ Tällä välillä on epämääräisen muotoinen alue, jossa tarvittavien iteraatiokierr
+osten määrä on vaikeasti ennustettavissa.
+ Kuvassa kukin piste vastaa yhtä 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$c$
+\end_layout
+
+\end_inset
+
+:n arvoa ja kyseisen pisteen väri kertoo tarvittujen iterointikierrosten
+ lukumäärän kyseisellä 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$c$
+\end_layout
+
+\end_inset
+
+:n arvolla.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-2cm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename kuvat/fexplorer.png
+	width 90text%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.4cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mandelbrot-fraktaali työn ohjelmarungolla piirrettynä.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

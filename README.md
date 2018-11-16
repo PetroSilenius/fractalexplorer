@@ -1,9 +1,9 @@
 # fractalexplorer
 
-# Harjoitustyön tehtävänanto
+## Harjoitustyön tehtävänanto
 Tehtävänanto sekä tarkempi dokumentaatio ilmestyy tämän päivän (perjantai 16.11.) aikana.
 
-# Työkalujen asennus
+## Työkalujen asennus
 Työn tekemistä varten, asenna seuraavat työkalut seuraavassa järjestyksessä:
 
 ### 1. Java Development Kit (JDK)
@@ -38,7 +38,7 @@ JavaFX vastaa käyttöliittymästä esimerkkiprojektissamme. Riippuu Javan versi
     - Windows/Mac: JavaFX osana Oracle JDK 8:aa
     - Linux: OpenJFX (pitää asentaa erikseen paketinhallinnasta)
 
-# Konfigurointi
+## Konfigurointi
 
 ### Ympäristömuuttujat
 
@@ -58,16 +58,16 @@ Ympäristömuuttuja PATH sisältää kaikki ne polut, josta etsitään suoritett
 - Testaa että komentoriviltä voi suorittaa käskyt: git, sbt, java, javac (Oracle jostain syystä unohtanut jossain Java-versiossa sisällyttää JDK:n javac:n PATH:iin)
 - Jos jokin työkalu ei toimi, lisää kyseisen työkalun binäärien hakemisto PATHiin ;-eroteltuna (Linux/Mac :-eroteltuna).
 
-### Projektin aloittaminen
+## Projektin aloittaminen ja projektirungon lataus
 
-#### Forkkaamalla projekti (suositeltu)
+### Forkkaamalla projekti (suositeltu)
 1. Ryhmän perustaja forkkaa (eli tekee itsellensä kopion projektista gitlabiin) osoitteessa https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer/forks/new
     - Suositeltavaa pitää näkyvyys forkilla Privatena, etteivät muut pääse kopioimaan koodia
 2. Ryhmäläisille tulee antaa tämän jälkeen tarvittavat oikeudet forkattuun projektiin kohdasta Settings > Members
 3. Ryhmän jäsenet voivat nyt kloonata forkkisi harjoitustyöstä joko komentorivillä (git clone) tai IDEA:lla (Check out from Version Control -> Git)
 4. Joka kerta kun joku lähettää (push) commitit gitlabiin, ajetaan CI/CD-pipeline, joka tarkistaa, kääntyykö harjoitustyö ja onko se ratkaistu oikein. Ei siis kannata pelästyä ilmoitusta siitä, että testaus epäonnistui.
 
-#### Manuaalisesti
+### Manuaalisesti
 1. Lataa (kloonaa) git-komentorivityökalulla projekti osoitteesta https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer.git
     - Huom. Et pysty tällöin lähettämään muutoksia gitlabiin ilman lisäkonfiguraatiota, sillä sinulla ei ole kirjoitusoikeuksia projektipohjaan
     - Mikäli git tuottaa liiaksi hankaluuksia tälläkin asteella, voit ladata uusimman version harjoitustyöpohjasta suoraan osoitteesta https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer/-/archive/master/fractalexplorer-master.zip
