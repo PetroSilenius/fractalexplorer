@@ -71,14 +71,9 @@ Ympäristömuuttuja PATH sisältää kaikki ne polut, josta etsitään suoritett
 1. Lataa (kloonaa) git-komentorivityökalulla projekti osoitteesta https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer.git
     - Huom. Et pysty tällöin lähettämään muutoksia gitlabiin ilman lisäkonfiguraatiota, sillä sinulla ei ole kirjoitusoikeuksia projektipohjaan
     - Mikäli git tuottaa liiaksi hankaluuksia tälläkin asteella, voit ladata uusimman version harjoitustyöpohjasta suoraan osoitteesta https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer/-/archive/master/fractalexplorer-master.zip
-2. Voit aloittaa työskentelyn. Huomaa, että tällä tavoin et pysty hyödyntämään gitin tarjoamia etuja ryhmätyöskentelyyn, etkä saa myöskään automaattitarkastajaa käyttöön.
-3. Lopuksi kuitenkin käytetään toimivuuden tarkistamiseksi. Tällöin voit luoda gitlabiin uuden puhtaan repositoryn ja lähettää koodit suoraan sinne.
+2. Voit aloittaa työskentelyn. Huomaa, että tällä tavoin et pysty hyödyntämään gitin tarjoamia etuja ryhmätyöskentelyssä, etkä saa myöskään automaattitarkastajaa käyttöön.
+3. Lopuksi kuitenkin automaattitarkastajaa käytetään toimivuuden tarkistamiseksi. Tällöin voit luoda gitlabiin uuden puhtaan repositoryn ja lähettää koodit suoraan sinne.
 
-- Erikseen ladatun projektin voi importata myöhemminkin IDEAan
-
-- SBT integroituna IDEA:n sisällä – ei tarvita komentoriviä
-
-- Java-versio valitaan projektia luotaessa. Voi vaihtaa myöhemmin. Suositus: 11
 
 # Käyttö
 Komentoriviltä projekti käynnistyy komennolla:
@@ -88,3 +83,11 @@ $ sbt run
 ```
 
 IDEA:sta käynnistä `main()` luokasta `MandelbrotMain`.
+
+### Huomioita
+
+- Erikseen ladatun projektin voi importata myöhemminkin IDEAan
+
+- SBT integroituna IDEA:n sisällä – ei tarvita komentoriviä
+
+- Java-versio valitaan projektia luotaessa. Voi vaihtaa myöhemmin. Suositus: 11
