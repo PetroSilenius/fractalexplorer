@@ -64,8 +64,9 @@ Ympäristömuuttuja PATH sisältää kaikki ne polut, josta etsitään suoritett
 1. Ryhmän perustaja forkkaa (eli tekee itsellensä kopion projektista gitlabiin) osoitteessa https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer/forks/new
     - Suositeltavaa pitää näkyvyys forkilla Privatena, etteivät muut pääse kopioimaan koodia
 2. Ryhmäläisille tulee antaa tämän jälkeen tarvittavat oikeudet forkattuun projektiin kohdasta Settings > Members
-3. Ryhmän jäsenet voivat nyt kloonata forkkisi harjoitustyöstä joko komentorivillä (git clone) tai IDEA:lla (Check out from Version Control -> Git)
-4. Joka kerta kun joku lähettää (push) commitit gitlabiin, ajetaan CI/CD-pipeline, joka tarkistaa, kääntyykö harjoitustyö ja onko se ratkaistu oikein. Ei siis kannata pelästyä ilmoitusta siitä, että testaus epäonnistui.
+3. Antakaa myös vähintään Reporter-tason oikeudet distributed-systems -ryhmälle projektisivunne Settings > Members > Invite group -kohdassa
+4. Ryhmän jäsenet voivat nyt kloonata forkkisi harjoitustyöstä joko komentorivillä (git clone) tai IDEA:lla (Check out from Version Control -> Git)
+5. Joka kerta kun joku lähettää (push) commitit gitlabiin, ajetaan CI/CD-pipeline, joka tarkistaa, kääntyykö harjoitustyö ja onko se ratkaistu oikein. Ei siis kannata pelästyä ilmoitusta siitä, että testaus epäonnistui.
 
 ### Manuaalisesti
 1. Lataa (kloonaa) git-komentorivityökalulla projekti osoitteesta https://gitlab.utu.fi/tech/education/distributed-systems/fractalexplorer.git
