@@ -27,11 +27,11 @@ public interface MandelbrotRenderer extends MandelbrotKernel {
         final double vps = vp.dy + s;
 
         double x = tx;
-        double y = (ty - h) * zoom;
+        double y = (2*ty - h) * zoom;
         int lineIdx = ty * ww;
 
         for (int yy = ty; yy < my; yy++) {
-            x = (tx - w) * zoom;
+            x = (2*tx - w) * zoom;
             for (int xx = tx; xx < mx; xx += vectorSize()) {
                 if (vectorSize() > 1) {
 
