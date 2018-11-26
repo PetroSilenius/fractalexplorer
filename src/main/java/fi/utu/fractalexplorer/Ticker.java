@@ -7,24 +7,25 @@ import fi.utu.fractalexplorer.util.Scheduled;
  * @see Scheduled
  */
 class Ticker implements Scheduled {
-    public int tickDuration() {
-        return 50;
-    }
-
     final MandelbrotCanvas canvas;
 
     public Ticker(MandelbrotCanvas canvas) {
         this.canvas = canvas;
     }
 
-    // run this at program startup
+    @Override
+    public int tickDuration() {
+        return 50;
+    }
+
+    @Override
     public void initialize() {
         System.out.println("I have " + Runtime.getRuntime().availableProcessors() + " processors/cores.");
     }
 
-    // run periodically (update period set via int tickDuration())
+    @Override
     public void tick() {
-        // we can benchmark the performance here
+        // we can benchmark the performance here. the results show up in the console panel
         long start = System.currentTimeMillis();
         canvas.redraw();
         long stop = System.currentTimeMillis();

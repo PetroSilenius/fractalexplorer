@@ -6,8 +6,8 @@ package fi.utu.fractalexplorer.renderers;
  * This class is final. Modification is not necessary.
  */
 public class BenchmarkRuns {
-    public int runs = 0;
-    public long renderTime = 0;
+    private int runs = 0;
+    private long renderTime = 0;
     public final String renderer;
 
     public BenchmarkRuns(RendererType type) {
@@ -22,6 +22,13 @@ public class BenchmarkRuns {
     public void add(long renderTime) {
         runs++;
         this.renderTime += renderTime;
+    }
+
+    /**
+     * @return Accumulated total render time.
+     */
+    public long renderTime() {
+        return renderTime;
     }
 
     /**

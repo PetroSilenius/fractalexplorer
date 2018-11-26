@@ -7,6 +7,10 @@ import fi.utu.fractalexplorer.renderers.RendererType;
 import fi.utu.fractalexplorer.util.Viewport;
 
 /**
+ * Basic platform agnostic functionality for drawing a 'canvas'. Keeps track
+ * of viewport parameters and renderers and provides a generic way to 'redraw()'
+ * in a platform specific manner.
+ *
  * You need to consider if this needs to be changed in order to support all rendering modes.
  */
 public abstract class MandelbrotCanvas {
@@ -50,5 +54,9 @@ public abstract class MandelbrotCanvas {
         refreshRenderer();
     }
 
+    /**
+     * Platform specific redraw routine. Implement this for your platform.
+     * Should redraw the whole fractal.
+     */
     public abstract void redraw();
 }

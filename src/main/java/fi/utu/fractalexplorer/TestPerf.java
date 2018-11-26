@@ -37,10 +37,10 @@ public class TestPerf {
             }
         }
 
-        if (runs.get(0).renderTime < runs.get(1).renderTime/2) errors += "The Vector version is somehow too slow!\n";
-        if (runs.size()<3 || runs.get(2).renderTime < 20) errors += "The method "+RendererType.values()[2]+" is unimplemented!\n";
-        if (runs.size()<4 || runs.get(3).renderTime < 20) errors += "The method "+RendererType.values()[3]+" is unimplemented!\n";
-        if (runs.size()<5 || runs.get(4).renderTime < 20) errors += "The method "+RendererType.values()[4]+" is unimplemented!\n";
+        if (runs.get(0).renderTime() < runs.get(1).renderTime()/2) errors += "The Vector version is somehow too slow!\n";
+        if (runs.size()<3 || runs.get(2).renderTime() < 20) errors += "The method "+RendererType.values()[2]+" is unimplemented!\n";
+        if (runs.size()<4 || runs.get(3).renderTime() < 20) errors += "The method "+RendererType.values()[3]+" is unimplemented!\n";
+        if (runs.size()<5 || runs.get(4).renderTime() < 20) errors += "The method "+RendererType.values()[4]+" is unimplemented!\n";
 
         if (!errors.equals(""))
             throw new Error(errors);

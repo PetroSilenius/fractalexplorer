@@ -16,7 +16,7 @@ public class DummyPixelRenderer implements PixelRenderer {
      *
      * @param w Image width.
      * @param h Image height.
-     * @param vectorSize Vector size (used to append extra pixels to the buffer)
+     * @param vectorSize Vector size (used to add some padding to avoid index out of bounds exceptions).
      */
     public DummyPixelRenderer(int w, int h, int vectorSize) {
         this.w = w;
@@ -28,8 +28,8 @@ public class DummyPixelRenderer implements PixelRenderer {
      * Stores the calculated pixel value to the integer array of pixels.
      */
     @Override
-    public void setPixel(int idx, int i) {
-        data[idx] = i;
+    public void setPixel(int pixelIdx, int colorValue) {
+        data[pixelIdx] = colorValue;
     }
 
     /**

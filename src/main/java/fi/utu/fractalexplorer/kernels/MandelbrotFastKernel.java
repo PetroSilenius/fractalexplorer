@@ -2,6 +2,7 @@ package fi.utu.fractalexplorer.kernels;
 
 /**
  * Interface MandelbrotFastKernel draws the mandelbrot set using SSE vector instructions.
+ * Documented in MandelbrotKernel.
  *
  * This class is final. Modification is not necessary.
  */
@@ -77,7 +78,7 @@ public interface MandelbrotFastKernel extends MandelbrotSlowKernel {
 
     VectorizedMandelbrot vectorStorage();
 
-    // use vector processing
+    // perform actual vector processing
     @Override
     default int[] mandelbrot(double x, double y, double inc, double rot) {
         return vectorStorage().mandelbrot(x, y, inc, rot, getMaxIterations());

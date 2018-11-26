@@ -2,11 +2,11 @@ package fi.utu.fractalexplorer.kernels;
 
 /**
  * Interface MandelbrotSlowKernel draws the mandelbrot set using x86 scalar registers.
+ * Documented in MandelbrotKernel.
  *
  * This class is final. Modification is not necessary.
  */
 public interface MandelbrotSlowKernel extends MandelbrotKernel {
-    // mandelbrot kernel function, return the iteration count for a point
     @Override
     default int mandelbrot(double c_re, double c_im) {
         double zx = 0, zy = 0, xSqr = 0, ySqr = 0;
@@ -28,6 +28,7 @@ public interface MandelbrotSlowKernel extends MandelbrotKernel {
         return 1;
     }
 
+    // this just emulates vector processing with a loop
     @Override
     default int[] mandelbrot(double x, double y, double inc, double rot) {
         int[] ret = new int[vectorSize()];
