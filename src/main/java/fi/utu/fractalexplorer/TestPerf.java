@@ -6,6 +6,10 @@ import fi.utu.fractalexplorer.renderers.RendererType;
 
 import java.util.ArrayList;
 
+/**
+ * This class performs some rendering tests into memory buffers
+ * in order to determine proper functionality of the different renderers.
+ */
 public class TestPerf {
     public static void main(String[] args) {
         int w = 2000, h = 2000;

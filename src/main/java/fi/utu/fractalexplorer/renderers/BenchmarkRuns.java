@@ -14,11 +14,19 @@ public class BenchmarkRuns {
         this.renderer = type.description;
     }
 
+    /**
+     * Log a single rendering run and accumulate the render time counter.
+     *
+     * @param renderTime rendering time in milliseconds
+     */
     public void add(long renderTime) {
         runs++;
         this.renderTime += renderTime;
     }
 
+    /**
+     * @return A summary of the benchmark runs.
+     */
     public String toString() {
         return "" + renderer + ", " + runs + " runs, " + renderTime + " ms.";
     }

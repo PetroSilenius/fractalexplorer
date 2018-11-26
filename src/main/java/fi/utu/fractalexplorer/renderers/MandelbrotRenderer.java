@@ -4,13 +4,31 @@ import fi.utu.fractalexplorer.util.Viewport;
 import fi.utu.fractalexplorer.kernels.MandelbrotKernel;
 
 /**
+ * Interface for renderers that can draw the Mandelbrot set
+ * (as a whole, single pixels, or regions).
+ *  - for single pixels, use int mandelbrot(double, double)
+ *  - for regions, use void drawTile(int, int, int, int, Viewport)
+ *  - for the whole set, use void drawSet(Viewport)
+ *
  * You need to consider if this needs to be changed in order to support all rendering modes.
  */
 public interface MandelbrotRenderer extends MandelbrotKernel {
+    /**
+     * @return Width of the whole rendered image.
+     */
     int renderWidth();
 
+    /**
+     * @return Height of the whole rendered image.
+     */
     int renderHeight();
 
+    /**
+     * Implemented in subclasses. Allows rendering to different
+     * surfaces, e.g. arrays, image buffers, JavaFX image objects etc.
+     *
+     * @return A renderer object used for storing individual pixel values.
+     */
     PixelRenderer pixelRenderer();
 
     /**
@@ -79,6 +97,16 @@ public interface MandelbrotRenderer extends MandelbrotKernel {
         }
     }
 
-    // draw the whole set
+    /**
+     * Draws the whole Mandelbrot set.
+     *
+     * Subclasses can implement different rendering strategies,
+     * e.g. sequential, parallel, tiled etc. The work can be
+     * delegated to drawTile() or the pixel/vector kernel functions in
+     * fi.utu.fractalexplorer.kernels.MandelbrotKernel
+     *
+     * @param vp Viewport parameters. See fi.utu.fractalexplorer.MandelbrotCanvas
+     *           and fi.utu.fractalexplorer.util.Viewport for examples.
+     */
     void drawSet(Viewport vp);
 }

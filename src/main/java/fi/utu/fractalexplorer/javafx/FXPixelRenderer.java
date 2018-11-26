@@ -23,6 +23,9 @@ public class FXPixelRenderer extends Canvas implements PixelRenderer {
         this.palette = new FXPalette(maxIterations);
     }
 
+    /**
+     * The fractal renderers connect to JavaFX image buffers via this callback.
+     */
     @Override
     public void setPixel(int idx, int i) {
         data[idx] = palette.getScaledColor(i);

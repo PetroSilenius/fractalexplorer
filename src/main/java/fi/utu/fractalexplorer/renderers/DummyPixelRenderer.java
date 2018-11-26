@@ -7,19 +7,41 @@ import fi.utu.fractalexplorer.util.Viewport;
  */
 public class DummyPixelRenderer implements PixelRenderer {
     private final int w, h;
+
+    // can be used for comparing the rendering result
     public final int[] data;
 
+    /**
+     * Initialize benchmark parameters.
+     *
+     * @param w Image width.
+     * @param h Image height.
+     * @param vectorSize Vector size (used to append extra pixels to the buffer)
+     */
     public DummyPixelRenderer(int w, int h, int vectorSize) {
         this.w = w;
         this.h = h;
         data = new int[w * h + vectorSize];
     }
 
+    /**
+     * Stores the calculated pixel value to the integer array of pixels.
+     */
     @Override
     public void setPixel(int idx, int i) {
         data[idx] = i;
     }
 
+    /**
+     * Benchmark a fractal renderer of type 'type'. Run the rendering with maximum number of
+     * 'maxIterations' iterations. The rendering is performed runCount times so stabilize the
+     * results.
+     *
+     * @param type Renderer type, @see fi.utu.fractalexplorer.renderers.RendererType
+     * @param maxIterations maximum number of iterations
+     * @param runCount The rendering is performed runCount times
+     * @return Benchmark result data
+     */
     public BenchmarkRuns benchmark(RendererType type, int maxIterations, int runCount) {
         try {
             MandelbrotRenderer r = RendererFactory.createRenderer(type, w, h, maxIterations, this);

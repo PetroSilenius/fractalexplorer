@@ -22,6 +22,7 @@ class Ticker implements Scheduled {
         System.out.println("I have " + Runtime.getRuntime().availableProcessors() + " processors/cores.");
     }
 
+    // run periodically (update period set via int tickDuration())
     public void tick() {
         // we can benchmark the performance here
         long start = System.currentTimeMillis();
