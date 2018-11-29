@@ -169,16 +169,14 @@ skalaarimatematiikalla (double)
 \end{enumerate}
 \item Piirron seuraava luokkien abstraktiotaso hyödyntää Javan (8+) moniperintää
 \begin{enumerate}
-\item MandelbrotRenderer: yleinen kehys koko fraktaalin laskemiseksi
+\item MandelbrotRenderer: yleinen kehys koko fraktaalin tai sen osien laskemiseksi
 \item RendererBase: yleinen kehys koko fraktaalin laskemiseksi
 \item MandelbrotSequentialRenderer: piirtää fraktaalin peräkkäisesti
-\item MandelbrotSlowRenderer: piirtää fraktaalin peräkkäisesti MandelbrotSlowKernel:lla
 \begin{enumerate}
-\item SlowRenderer: yhdistää MandelbrotSlowRenderer:n laskentakoodiin
-\end{enumerate}
-\item MandelbrotFastRenderer: piirtää fraktaalin peräkkäisesti MandelbrotFastKernel:lla
-\begin{enumerate}
-\item FastRenderer: yhdistää MandelbrotFastRenderer:n laskentakoodiin
+\item FastRenderer: Piirtää fraktaalin peräkkäisesti yhdistämällä MandelbrotSequentialRendererin
+MandelbrotFastKernelin laskentakoodiin
+\item SlowRenderer: Piirtää fraktaalin peräkkäisesti yhdistämällä MandelbrotSequentialRendererin
+MandelbrotSlowKernelin laskentakoodiin
 \end{enumerate}
 \item RendererFactory: apuluokka, joka luo pyynnöstä em. piirtoluokkia
 \end{enumerate}
@@ -187,13 +185,14 @@ skalaarimatematiikalla (double)
 \item MandelbrotStaticParallelRenderer: piirtää fraktaalin rinnakkaisesti
 MandelbrotFastKernel:lla, hyödyntäen staattista aikataulutusta
 \begin{enumerate}
-\item StaticThreadRenderer: yhdistää MandelbrotStaticParallelRenderer:n
-laskentakoodiin
+\item StaticThreadRenderer: yhdistää MandelbrotStaticParallelRendererin
+MandelbrotFastKernelin laskentakoodiin
 \end{enumerate}
 \item MandelbrotDynamicParallelRenderer: piirtää fraktaalin rinnakkaisesti
 MandelbrotFastKernel:lla, hyödyntäen dynaamista aikataulutusta
 \begin{enumerate}
-\item DynThreadRenderer: yhdistää MandelbrotDynamicParallelRenderer:n laskentakoodiin
+\item DynThreadRenderer: yhdistää MandelbrotDynamicParallelRendererin MandelbrotFastKernelin
+laskentakoodiin
 \end{enumerate}
 \end{enumerate}
 \end{enumerate}

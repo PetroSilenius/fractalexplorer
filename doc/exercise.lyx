@@ -708,7 +708,7 @@ Piirron seuraava luokkien abstraktiotaso hyödyntää Javan (8+) moniperintää
 
 \begin_deeper
 \begin_layout Enumerate
-MandelbrotRenderer: yleinen kehys koko fraktaalin laskemiseksi
+MandelbrotRenderer: yleinen kehys koko fraktaalin tai sen osien laskemiseksi
 \end_layout
 
 \begin_layout Enumerate
@@ -719,25 +719,15 @@ RendererBase: yleinen kehys koko fraktaalin laskemiseksi
 MandelbrotSequentialRenderer: piirtää fraktaalin peräkkäisesti
 \end_layout
 
-\begin_layout Enumerate
-MandelbrotSlowRenderer: piirtää fraktaalin peräkkäisesti MandelbrotSlowKernel:ll
-a
-\end_layout
-
 \begin_deeper
 \begin_layout Enumerate
-SlowRenderer: yhdistää MandelbrotSlowRenderer:n laskentakoodiin
+FastRenderer: Piirtää fraktaalin peräkkäisesti yhdistämällä MandelbrotSequential
+Rendererin MandelbrotFastKernelin laskentakoodiin
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
-MandelbrotFastRenderer: piirtää fraktaalin peräkkäisesti MandelbrotFastKernel:ll
-a
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-FastRenderer: yhdistää MandelbrotFastRenderer:n laskentakoodiin
+SlowRenderer: Piirtää fraktaalin peräkkäisesti yhdistämällä MandelbrotSequential
+Rendererin MandelbrotSlowKernelin laskentakoodiin
 \end_layout
 
 \end_deeper
@@ -759,8 +749,8 @@ stKernel:lla, hyödyntäen staattista aikataulutusta
 
 \begin_deeper
 \begin_layout Enumerate
-StaticThreadRenderer: yhdistää MandelbrotStaticParallelRenderer:n laskentakoodii
-n
+StaticThreadRenderer: yhdistää MandelbrotStaticParallelRendererin MandelbrotFast
+Kernelin laskentakoodiin
 \end_layout
 
 \end_deeper
@@ -771,7 +761,8 @@ astKernel:lla, hyödyntäen dynaamista aikataulutusta
 
 \begin_deeper
 \begin_layout Enumerate
-DynThreadRenderer: yhdistää MandelbrotDynamicParallelRenderer:n laskentakoodiin
+DynThreadRenderer: yhdistää MandelbrotDynamicParallelRendererin MandelbrotFastKe
+rnelin laskentakoodiin
 \end_layout
 
 \end_deeper
