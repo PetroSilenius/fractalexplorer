@@ -45,6 +45,8 @@ public interface MandelbrotRenderer extends MandelbrotKernel {
      *
      */
     default void drawTile(int tx, int ty, int tw, int th, Viewport vp) {
+        assert(tx%vectorSize()==0);
+        assert(tw%vectorSize()==0);
         final double w = renderWidth(), h = renderHeight();
         final int ww = renderWidth();
         final int v = vectorSize();

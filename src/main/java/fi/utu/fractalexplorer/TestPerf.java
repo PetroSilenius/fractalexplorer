@@ -30,7 +30,7 @@ public class TestPerf {
                 DummyPixelRenderer d = new DummyPixelRenderer(w, w, 8);
                 BenchmarkRuns run = d.benchmark(t, 50, 8);
                 for (int i=0;i<w*h;i++)
-                    if (baseline.data[i] != d.data[i]) { errors += "Rendering of "+t+" differs!\n"; break; }
+                    if (baseline.data[i] != d.data[i]) { errors += "Rendering of "+t+" differs in position ("+(i%w)+","+(i/w)+")!\n"; break; }
                 runs.add(run);
                 System.out.println(t + " done ["+run+"].");
 
