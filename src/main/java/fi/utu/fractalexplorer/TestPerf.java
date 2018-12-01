@@ -15,6 +15,9 @@ public class TestPerf {
         int w = 2000, h = 2000;
         String errors = "";
 
+        int p = Runtime.getRuntime().availableProcessors();
+        System.out.println("I have " + p + " processors/cores.");
+
         if (RendererType.values().length != 5) throw new Error("Wrong number of rendering methods!");
 
         DummyPixelRenderer baseline = new DummyPixelRenderer(w, h, 8);
@@ -27,9 +30,9 @@ public class TestPerf {
                 DummyPixelRenderer d = new DummyPixelRenderer(w, w, 8);
                 BenchmarkRuns run = d.benchmark(t, 50, 8);
                 for (int i=0;i<w*h;i++)
-                    if (baseline.data[i] != d.data[i]) throw new Exception("Rendering of "+t+" differs!");
+                    if (baseline.data[i] != d.data[i]) { errors += "Rendering of "+t+" differs!\n"; break; }
                 runs.add(run);
-                System.out.println(t + " done.");
+                System.out.println(t + " done ["+run+"].");
 
             }
             catch(Exception e) {
@@ -38,11 +41,13 @@ public class TestPerf {
         }
 
         if (runs.get(0).renderTime() < runs.get(1).renderTime()/2) errors += "The Vector version is somehow too slow!\n";
-        if (runs.size()<3 || runs.get(2).renderTime() < 20) errors += "The method "+RendererType.values()[2]+" is unimplemented!\n";
-        if (runs.size()<4 || runs.get(3).renderTime() < 20) errors += "The method "+RendererType.values()[3]+" is unimplemented!\n";
-        if (runs.size()<5 || runs.get(4).renderTime() < 20) errors += "The method "+RendererType.values()[4]+" is unimplemented!\n";
+        if (runs.size()<3 || runs.get(2).renderTime() < runs.get(1).renderTime()/p) errors += "The method "+RendererType.values()[2]+" is unimplemented!\n";
+        if (runs.size()<4 || runs.get(3).renderTime() < runs.get(1).renderTime()/p) errors += "The method "+RendererType.values()[3]+" is unimplemented!\n";
+        if (runs.size()<5 || runs.get(4).renderTime() < runs.get(1).renderTime()/p) errors += "The method "+RendererType.values()[4]+" is unimplemented!\n";
 
-        if (!errors.equals(""))
-            throw new Error(errors);
+        if (!errors.equals("")) {
+            System.err.println(errors);
+            System.exit(1);
+        }
     }
 }
