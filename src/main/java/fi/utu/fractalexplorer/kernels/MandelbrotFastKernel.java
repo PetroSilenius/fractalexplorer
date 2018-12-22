@@ -12,15 +12,19 @@ public interface MandelbrotFastKernel extends MandelbrotSlowKernel {
             return 4;
         }
 
-        private final double zx[] = new double[vectorSize()], zy[] = new double[vectorSize()], xSqr[] = new double[vectorSize()], ySqr[] = new double[vectorSize()];
-
-        private final int ret[] = new int[vectorSize()];
-        private final double c_res[] = new double[vectorSize()];
-        private final double c_ims[] = new double[vectorSize()];
-        private final double c_res_preaff[] = new double[vectorSize()];
-        private final double c_ims_preaff[] = new double[vectorSize()];
 
         public final int[] mandelbrot(double x, double y, double inc, double rot, int maxIterations) {
+
+            //Siirrettiin muuttujien määrittely mandelbrot metodin sisään, sillä metodi aiheutti erroreita 2. tehtävässä
+            //Muuttujien määrittelyn siirtäminen ratkaisi ongelman
+
+            final double zx[] = new double[vectorSize()], zy[] = new double[vectorSize()], xSqr[] = new double[vectorSize()], ySqr[] = new double[vectorSize()];
+
+            final int ret[] = new int[vectorSize()];
+            final double c_res[] = new double[vectorSize()];
+            final double c_ims[] = new double[vectorSize()];
+            final double c_res_preaff[] = new double[vectorSize()];
+            final double c_ims_preaff[] = new double[vectorSize()];
 
             for (int i = 0; i < vectorSize(); i++)
                 c_res_preaff[i] = x + i * inc;
