@@ -16,9 +16,10 @@ public class RendererFactory {
             case DynamicThreaded:
                 return new DynThreadRenderer(w, h, maxIterations, p);
             case ThreadedWorkQueue:
-                throw new Exception("Unimplemented renderer type "+type);
-                // TODO: this requires something more..
-                // return new DynThreadRenderer(w, h, maxIterations, p);
+                //throw new Exception("Unimplemented renderer type "+type);
+                ThreadedWorkQueueRenderer t = new ThreadedWorkQueueRenderer(w, h, maxIterations, p);
+                t.main();
+                return t;
             default:
                 throw new Exception("Unknown renderer type "+type);
         }

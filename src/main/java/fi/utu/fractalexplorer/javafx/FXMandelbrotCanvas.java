@@ -11,13 +11,15 @@ public class FXMandelbrotCanvas extends MandelbrotCanvas {
     public final Canvas peer = new Canvas();
     private double oldX, oldY;
     private boolean pressed;
-    private FXPixelRenderer backendBuffer;
+    protected FXPixelRenderer backendBuffer;
 
     public FXMandelbrotCanvas(int maxIterations, RendererType rendererType) {
         this.maxIterations = maxIterations;
         this.rendererType = rendererType;
         initControls();
     }
+
+    public FXMandelbrotCanvas(){}
 
     void initControls() {
         peer.setOnScroll(e -> {
@@ -40,20 +42,22 @@ public class FXMandelbrotCanvas extends MandelbrotCanvas {
         });
     }
 
-    @Override protected FXPixelRenderer generateBackend(int w, int h, int vectorSize) {
+    @Override
+    protected FXPixelRenderer generateBackend(int w, int h, int vectorSize) {
         backendBuffer = new FXPixelRenderer(w, h, maxIterations, 8);
         return backendBuffer;
     }
 
     int getWidth() {
-        return (int)peer.getWidth();
+        return (int) peer.getWidth();
     }
 
     int getHeight() {
-        return (int)peer.getHeight();
+        return (int) peer.getHeight();
     }
 
-    @Override public void redraw() {
+    @Override
+    public void redraw() {
         int w2 = getWidth(), h2 = getHeight();
         if (w2 > 0 && h2 > 0) {
             if (renderer == null || renderer.renderWidth() != w2 || renderer.renderHeight() != h2) {
@@ -61,9 +65,13 @@ public class FXMandelbrotCanvas extends MandelbrotCanvas {
             }
             if (pressed) viewPort = viewPort.translate(oldX / getWidth() - 0.5, oldY / getHeight() - 0.5);
         }
+        while (renderer.getClass().getSimpleName().equals("ThreadedWorkQueueRenderer")){
+            break;              //break, koska kuluttajaluokan suunniteltiin toteuttavan piirto
+        }
         if (renderer != null) {
             renderer.drawSet(viewPort);
             backendBuffer.draw(peer.getGraphicsContext2D());
         }
     }
+
 }
