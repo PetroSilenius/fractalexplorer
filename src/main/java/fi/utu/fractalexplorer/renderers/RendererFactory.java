@@ -13,12 +13,9 @@ public class RendererFactory {
                 return new FastRenderer(w, h, maxIterations, p);
             case StaticThreaded:
                 return new StaticThreadRenderer(w, h, maxIterations, p);
+            case ThreadedWorkQueue:
             case DynamicThreaded:
                 return new DynThreadRenderer(w, h, maxIterations, p);
-            case ThreadedWorkQueue:
-                throw new Exception("Unimplemented renderer type "+type);
-                // TODO: this requires something more..
-                // return new DynThreadRenderer(w, h, maxIterations, p);
             default:
                 throw new Exception("Unknown renderer type "+type);
         }

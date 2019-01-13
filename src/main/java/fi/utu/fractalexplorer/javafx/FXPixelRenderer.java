@@ -10,7 +10,7 @@ import javafx.scene.image.WritableImage;
  * You need to consider if this needs to be changed in order to support all rendering modes.
  */
 public class FXPixelRenderer extends Canvas implements PixelRenderer {
-    private final int width, height;
+    protected final int width, height;
     private final WritableImage buffer;
     private final int[] data;
     private final FXPalette palette;
@@ -39,11 +39,15 @@ public class FXPixelRenderer extends Canvas implements PixelRenderer {
         data[pixelIdx] = palette.getScaledColor(colorValue);
     }
 
-    public void draw(GraphicsContext c) {
+    protected void prepareDraw(WritableImage buffer) {
         buffer.getPixelWriter().setPixels(
                 0, 0,
                 width, height,
                 PixelFormat.getIntArgbPreInstance(), data, 0, width);
+    }
+
+    public void draw(GraphicsContext c) {
+        prepareDraw(buffer);
         c.drawImage(buffer, 0.0, 0.0);
     }
 }
