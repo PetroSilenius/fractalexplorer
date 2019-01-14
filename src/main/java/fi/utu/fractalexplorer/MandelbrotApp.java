@@ -1,6 +1,6 @@
 package fi.utu.fractalexplorer;
 
-import fi.utu.fractalexplorer.javafx.FXMandelbrotCanvas;
+import fi.utu.fractalexplorer.javafx.AsyncFXMandelbrotCanvas;
 import fi.utu.fractalexplorer.renderers.DummyPixelRenderer;
 import fi.utu.fractalexplorer.renderers.RendererType;
 import fi.utu.fractalexplorer.javafx.FXConsole;
@@ -40,7 +40,7 @@ public class MandelbrotApp extends Application {
     // configure this if this is too slow on your computer (smaller = faster)
     private final int initialIterations = 50;
 
-    private final FXMandelbrotCanvas canvas = new FXMandelbrotCanvas(initialIterations, RendererType.Vector);
+    private final AsyncFXMandelbrotCanvas canvas = new AsyncFXMandelbrotCanvas(initialIterations, RendererType.Vector);
     private final Label statusLabel = new Label("Executing benchmarks..");
     private boolean started = false;
 
