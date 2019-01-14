@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
  */
 public interface MandelbrotDynamicParallelRenderer extends MandelbrotRenderer {
     default void drawSet(Viewport vp) {
+        final Object lock = new Object();
 
         //Luodaan "allas" threadeja, määrä 4
         ExecutorService executor = Executors.newFixedThreadPool(4);
@@ -28,7 +29,7 @@ public interface MandelbrotDynamicParallelRenderer extends MandelbrotRenderer {
                 Runnable worker = new Runnable() {
                     @Override
                     public void run() {
-                        synchronized (this) {
+                        synchronized (lock) {
                             drawTile(tx, ty, renderWidth() / 8, renderHeight() / 8, vp);
                         }
                     }
