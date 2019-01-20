@@ -7,7 +7,6 @@ import fi.utu.fractalexplorer.util.Viewport;
  */
 public interface MandelbrotStaticParallelRenderer extends MandelbrotRenderer {
     default void drawSet(Viewport vp) {
-        final Object lock = new Object();
         //Luodaan taulukko threadeja, määrä 4
         Thread[] threads = new Thread[4];
 
@@ -18,17 +17,20 @@ public interface MandelbrotStaticParallelRenderer extends MandelbrotRenderer {
          * Jokainen threadi piirtää oman indeksinsä mukaisen alueen sekä indeksi + 4
          */
         for (int i=0; i<threads.length; i++){
-            int ty = i * renderHeight()/8;
+            int ty = i * (renderHeight()/8);
             threads[i] = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    synchronized (lock) {
                         drawTile(0, ty, renderWidth(), renderHeight() / 8, vp);
                         drawTile(0, ty + renderHeight()/2, renderWidth(), renderHeight() / 8, vp);
-                    }
                 }
             });
         }
+
+        //Piirtää puuttuvan osuuden, joka tapahtuu kun renderHeight ei ole jaollinen kahdeksalla
+        drawTile(0,8 * (renderHeight()/8), renderWidth(), renderHeight() - 8 * (renderHeight()/8), vp);
+
+
 
         //Käynnistetään threadeilla piirto
         try{

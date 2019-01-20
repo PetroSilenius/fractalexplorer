@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
  */
 public interface MandelbrotDynamicParallelRenderer extends MandelbrotRenderer {
     default void drawSet(Viewport vp) {
-        final Object lock = new Object();
 
         //Luodaan "allas" threadeja, määrä 4
         ExecutorService executor = Executors.newFixedThreadPool(4);
@@ -23,20 +22,35 @@ public interface MandelbrotDynamicParallelRenderer extends MandelbrotRenderer {
          */
 
         for (int y = 0; y <= 7; y += 1) {
-            int ty = (y) * renderHeight() / 8;
+            int ty = y * (renderHeight() / 8);
             for (int x = 0; x <= 7; x += 1) {
-                int tx = x * renderWidth() / 8;
+                int tx = x * (renderWidth() / 8);
                 Runnable worker = new Runnable() {
                     @Override
                     public void run() {
-                        synchronized (lock) {
                             drawTile(tx, ty, renderWidth() / 8, renderHeight() / 8, vp);
-                        }
                     }
                 };
                 executor.execute(worker);
             }
+            //Piirtää puuttuvan osuuden, joka tapahtuu kun renderWidth ei ole jaollinen kahdeksalla
+            drawTile(8 * (renderWidth()/8), ty, renderWidth()-8 * (renderWidth()/8), renderHeight()/8, vp);
         }
+
+        //Piirtää puuttuvan osuuden, joka tapahtuu kun renderHeight ei ole jaollinen kahdeksalla
+        for (int x = 0; x <= 7; x += 1) {
+            int tx = x * (renderWidth() / 8);
+            Runnable worker = new Runnable() {
+                @Override
+                public void run() {
+                    drawTile(tx, 8 * (renderHeight()/8), renderWidth() / 8, renderHeight()-8 * (renderHeight()/8), vp);
+                }
+            };
+            executor.execute(worker);
+        }
+        //Piirtää puuttuvan osuuden, joka tapahtuu kun renderHeight ja renderWidth eivät ole jaollisia kahdeksalla
+        drawTile(8 * (renderWidth()/8), 8 * (renderHeight()/8), renderWidth()-8 * (renderWidth()/8), renderHeight() - 8 * (renderHeight()/8), vp);
+
 
         //Varmistetaan, ettei executor ota uusia tehtäviä suoritettaviksi
         //ja odotetaan että suoritettavana olevat tehtävät viedään loppuun
