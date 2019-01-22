@@ -28,6 +28,7 @@ public interface MandelbrotStaticParallelRenderer extends MandelbrotRenderer {
         }
 
         //Piirtää puuttuvan osuuden, joka tapahtuu kun renderHeight ei ole jaollinen kahdeksalla
+        drawTile(0,4 * (renderHeight()/8), renderWidth(), renderHeight() - 8 * (renderHeight()/8), vp);
         drawTile(0,8 * (renderHeight()/8), renderWidth(), renderHeight() - 8 * (renderHeight()/8), vp);
 
 
