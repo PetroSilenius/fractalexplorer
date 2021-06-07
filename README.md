@@ -1,5 +1,15 @@
 # fractalexplorer
 
+A team project for the course Distributed Software Systems and Cloud Services DTEK1066. 
+
+## Team
+
+Petro Silenius - [@PetroSilenius](https://github.com/PetroSilenius) - petro.silenius@gmail.com
+Petteri Vainiotalo - [@vainiotalo](https://github.com/vainiotalo)
+Petri Holopainen
+
+___
+
 ## Harjoitustyön tehtävänanto
 Harjoitustyön tehtävänanto sekä lisätiedot löytyvät tämän repositoryn doc/ -hakemistosta nimellä exercise.pdf
 
